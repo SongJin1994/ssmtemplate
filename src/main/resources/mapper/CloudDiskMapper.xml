@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.song.dao.CloudDiskMapper">
+    <insert id="saveRecord" parameterType="com.song.model.FileRecord" keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO  FILERECORD (FILENAME, PATH) VALUES (#{fileName}, #{filePath})
+    </insert>
+    <select id="getFileList" resultType="map">
+        SELECT
+        ID "id",
+        MD5 "MD5",
+        FILENAME "fileName",
+        PATH "filePath"
+        FROM FILERECORD
+    </select>
+</mapper>
